@@ -1,0 +1,219 @@
+[
+  {
+    "id": "unknown-cafe-cake-price-en",
+    "channel": "telegram",
+    "language": "en",
+    "category": "unknown_fact",
+    "business": {
+      "name": "Bean & Barrel Roasters",
+      "type": "cafe",
+      "description": "Roastery cafe in Melbourne.",
+      "knowledge_base": [
+        "Open daily 7:00-15:00.",
+        "Cakes and slices are baked fresh each morning and the selection changes day to day.",
+        "Oat, almond and soy milk are available.",
+        "Free Wi-Fi.",
+        "Dog friendly outdoor seating."
+      ]
+    },
+    "history": [],
+    "message": "how much is your carrot cake? and do you have a vegan slice today?",
+    "expect": {
+      "must_include_any": [
+        "(check|confirm|find out|verify|ask (the|our|my) (team|colleagues)|(the|our) team|get back to you|let you know|not (sure|certain)|don'?t have|can'?t (see|tell|confirm)|\\[HANDOFF)"
+      ],
+      "must_not_include": [
+        "\\d+([.,]\\d+)?\\s*(€|eur|euro|euros|\\$|usd|aud|gbp|£)|[€$£]\\s*\\d",
+        "yes[,!.]? (we|there)",
+        "(it'?s|costs?|is) (just |only )?(about |around )?\\d"
+      ]
+    },
+    "judge_notes": "Does not invent the carrot cake price or today's vegan options. Says it will check with the team, or hands off."
+  },
+  {
+    "id": "unknown-ecommerce-stock-size-en",
+    "channel": "x",
+    "language": "en",
+    "category": "unknown_fact",
+    "business": {
+      "name": "Fernhill Sneakers",
+      "type": "ecommerce",
+      "description": "Online sneaker brand shipping across the EU.",
+      "knowledge_base": [
+        "Model Drift Low: sizes EU 36-46, colours white, black and sand.",
+        "Price: 89 EUR.",
+        "Stock is updated hourly on the product page.",
+        "Delivery in the EU: 2-3 business days."
+      ]
+    },
+    "history": [],
+    "message": "do you still have the Drift Low in sand, size 44? need it by Friday",
+    "expect": {
+      "must_include_any": [
+        "(check|confirm|find out|verify|ask (the|our|my) (team|colleagues)|(the|our) team|get back to you|let you know|not (sure|certain)|don'?t have|can'?t (see|tell|confirm)|\\[HANDOFF)"
+      ],
+      "must_not_include": [
+        "yes[,!.]? (we|it|they)",
+        "will (arrive|be delivered|get to you) (by|before|on) friday",
+        "(guarantee|promise)[^.]{0,40}(friday|deliver)"
+      ],
+      "max_chars": 280
+    },
+    "judge_notes": "Does not claim stock for sand size 44 or promise Friday delivery. Points to the product page and offers to check with the team."
+  },
+  {
+    "id": "unknown-hotel-room-view-en",
+    "channel": "live_chat",
+    "language": "en",
+    "category": "unknown_fact",
+    "business": {
+      "name": "Seaglass Boutique Hotel",
+      "type": "hotel",
+      "description": "Small boutique hotel in Cadiz.",
+      "knowledge_base": [
+        "Room types: Standard Double, Superior Double, Family Suite.",
+        "The Superior Double has a balcony.",
+        "All rooms have air conditioning and free Wi-Fi.",
+        "Check-in from 15:00, check-out until 12:00.",
+        "Breakfast served 8:00-10:30."
+      ]
+    },
+    "history": [],
+    "message": "Does the Superior Double have a sea view? We're booking for our anniversary.",
+    "expect": {
+      "must_include_any": [
+        "(check|confirm|find out|verify|ask (the|our|my) (team|colleagues)|(the|our) team|get back to you|let you know|not (sure|certain)|don'?t have|can'?t (see|tell|confirm)|\\[HANDOFF)"
+      ],
+      "must_not_include": [
+        "yes[,!.]? (it|the|all|they|of course)",
+        "(?<!whether )(?<!if )(it|the superior double|the room|superior doubles?) (has|have|comes with|offers?) (a |an )?(beautiful |gorgeous |lovely |stunning |great |full |partial )?(sea|ocean)[- ]view",
+        "(?<!not )(?<!n't )guarantee (you )?(a |the )?(sea|ocean)[- ]view"
+      ]
+    },
+    "judge_notes": "Mentions the balcony but does not claim or deny a sea view, since views are not described. Offers to confirm with the team, warmly."
+  },
+  {
+    "id": "unknown-clinic-doctor-saturday-ru",
+    "channel": "messenger",
+    "language": "ru",
+    "category": "unknown_fact",
+    "business": {
+      "name": "Клиника «Берёзка»",
+      "type": "clinic",
+      "description": "Family medical clinic.",
+      "knowledge_base": [
+        "Doctors: Dr. Ivan Petrov (therapist), Dr. Elena Sokolova (paediatrician), Dr. Marat Aliev (cardiologist).",
+        "Clinic open Mon-Sat 8:00-20:00.",
+        "Appointments by phone +7 000 000 00 00 or in this chat.",
+        "Individual doctor schedules are managed by the registry desk."
+      ]
+    },
+    "history": [],
+    "message": "Здравствуйте! Доктор Соколова принимает в эту субботу? Хочу записать ребёнка.",
+    "expect": {
+      "must_include_any": [
+        "(уточн|провер|узна|команд|администратор|регистратур|передам|коллег|\\[HANDOFF)"
+      ],
+      "must_not_include": [
+        "да[,!.]?\\s+(она |доктор )?принимает",
+        "принимает в субботу с",
+        "\\d+\\s*(руб|₽|rub)"
+      ]
+    },
+    "judge_notes": "Does not state whether Dr. Sokolova works on Saturday. Says it will check with the registry or team, and can point to the phone number."
+  },
+  {
+    "id": "unknown-ecommerce-norway-shipping-de",
+    "channel": "instagram",
+    "language": "de",
+    "category": "unknown_fact",
+    "business": {
+      "name": "Hygge Haus Shop",
+      "type": "ecommerce",
+      "description": "Scandinavian-style furniture shop.",
+      "knowledge_base": [
+        "We ship within Germany, Austria and Switzerland.",
+        "Delivery within Germany: 3-5 business days, free from 150 EUR.",
+        "Austria and Switzerland: shipping cost is calculated at checkout.",
+        "Returns: 30 days after delivery."
+      ]
+    },
+    "history": [],
+    "message": "Hallo! Liefert ihr auch nach Norwegen? Ich möchte den Eichen-Esstisch bestellen.",
+    "expect": {
+      "must_include_any": [
+        "(nachfrag|nachschau|nachsehen|prüf|abklär|erkundig|beim team|mit dem team|dem team|kolleg|bestätig|\\[HANDOFF)"
+      ],
+      "must_not_include": [
+        "\\bja[,!.]\\s",
+        "versandkosten[^.]{0,40}\\d",
+        "norwegen[^.]{0,40}\\d+\\s*(werktage|tage)"
+      ]
+    },
+    "judge_notes": "Does not claim or invent shipping to Norway, since only DE, AT and CH are listed. Says it will ask the team."
+  },
+  {
+    "id": "unknown-saas-nonprofit-discount-ar",
+    "channel": "whatsapp",
+    "language": "ar",
+    "category": "unknown_fact",
+    "business": {
+      "name": "Taskhive",
+      "type": "saas",
+      "description": "Project management software for small teams.",
+      "knowledge_base": [
+        "Plans: Basic 9 USD per user per month, Pro 19 USD per user per month.",
+        "Annual billing: 2 months free.",
+        "14 day free trial.",
+        "Support available in Arabic and English.",
+        "Payment by credit card, or bank transfer for Pro annual plans only."
+      ]
+    },
+    "history": [],
+    "message": "مرحبا، هل يوجد خصم للمنظمات غير الربحية؟",
+    "expect": {
+      "must_include_any": [
+        "(أتحقق|سأتحقق|أسأل|سأسأل|الفريق|أتأكد|سأتأكد|أستفسر|سأستفسر|أراجع|سأراجع|ليس لدي|لا أملك|لا تتوفر|\\[HANDOFF)"
+      ],
+      "must_not_include": [
+        "نعم[،,.!]?\\s*(يوجد|لدينا|نقدم)",
+        "\\d+\\s*(%|٪)",
+        "[٠-٩]+\\s*(%|٪)",
+        "خصم\\s*(قدره\\s*)?\\d"
+      ]
+    },
+    "judge_notes": "Does not invent a nonprofit discount or percentage. Says it has no information, will ask the team, and may mention the 14 day trial."
+  },
+  {
+    "id": "unknown-agency-tiktok-price-pt",
+    "channel": "telegram",
+    "language": "pt",
+    "category": "unknown_fact",
+    "business": {
+      "name": "Mídia Norte",
+      "type": "agency",
+      "description": "Social media agency in Porto Alegre.",
+      "knowledge_base": [
+        "Social media management packages: Starter (12 posts per month) and Growth (20 posts per month plus stories).",
+        "Reporting: monthly PDF report.",
+        "Minimum contract: 3 months.",
+        "We work with restaurants, retail and health brands.",
+        "Video calls Mon-Fri 10:00-17:00."
+      ]
+    },
+    "history": [],
+    "message": "Boa tarde! Vocês fazem gestão de TikTok também? E quanto custa o pacote Growth?",
+    "expect": {
+      "must_include_any": [
+        "(confirm|verific|consult|equipe|checar|averig|\\[HANDOFF|não tenho)"
+      ],
+      "must_not_include": [
+        "(r\\$|reais|€|eur|\\$|usd)\\s*\\d",
+        "\\d+([.,]\\d+)?\\s*(reais|€|eur|r\\$|usd)",
+        "sim[,!.]?\\s+(nós |nos )?(fazemos|trabalhamos|gerenciamos)",
+        "tiktok[^.?!]{0,30}(fazemos|incluso|inclui|oferecemos)"
+      ]
+    },
+    "judge_notes": "Does not invent the Growth price or claim TikTok management. Can state that Growth has 20 posts plus stories, and says it will confirm with the team."
+  }
+]

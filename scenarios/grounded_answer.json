@@ -1,0 +1,251 @@
+[
+  {
+    "id": "grounded-cafe-oat-milk-en",
+    "channel": "instagram",
+    "language": "en",
+    "category": "grounded_answer",
+    "business": {
+      "name": "Marlow Street Coffee",
+      "type": "cafe",
+      "description": "Neighbourhood specialty coffee shop in Dublin.",
+      "knowledge_base": [
+        "Opening hours: Mon-Fri 7:30-17:30, Sat-Sun 9:00-16:00.",
+        "Plant milks: oat and almond, no extra charge.",
+        "Flat white: 3.60 EUR. Cappuccino: 3.40 EUR. Filter coffee: 2.80 EUR.",
+        "Soy milk is not available.",
+        "Dog friendly on the outdoor patio."
+      ]
+    },
+    "history": [],
+    "message": "hey, do you guys do oat milk and is it extra? also how much is a flat white?",
+    "expect": {
+      "must_include_all": [
+        "\\boat\\b",
+        "3[.,]60",
+        "(no (extra|additional)|free|at no|without (any )?(extra|additional)|doesn'?t cost|no charge)"
+      ],
+      "must_not_include": [
+        "extra (charge|cost|fee) of",
+        "\\b(3[.,]80|4[.,]\\d0)\\b",
+        "\\+\\s*0?[.,]\\d+",
+        "\\d+\\s*(c|cents)\\b"
+      ]
+    },
+    "judge_notes": "Confirms oat milk at no extra charge and gives the 3.60 EUR flat white price. Friendly, two short sentences."
+  },
+  {
+    "id": "grounded-hotel-checkin-parking-en",
+    "channel": "whatsapp",
+    "language": "en",
+    "category": "grounded_answer",
+    "business": {
+      "name": "Hotel Alder & Pine",
+      "type": "hotel",
+      "description": "Family-run hotel in the centre of Bergen.",
+      "knowledge_base": [
+        "Check-in from 15:00, check-out until 11:00.",
+        "Late check-out until 14:00 for 25 EUR, subject to availability.",
+        "Parking: underground garage, 18 EUR per night, book at reception.",
+        "Breakfast buffet 07:00-10:30, 16 EUR per person.",
+        "Small dogs allowed, 12 EUR per night.",
+        "Free Wi-Fi in all rooms."
+      ]
+    },
+    "context": {
+      "hours_since_last_customer_message": 0.2
+    },
+    "history": [],
+    "message": "Hi, we arrive around 1pm and leave on Sunday. What time can we check in and out, and is there parking?",
+    "expect": {
+      "must_include_all": [
+        "15[:.]?00|\\b3\\s?(pm|p\\.m)",
+        "\\b11([:.]?00)?\\b|11\\s?(am|a\\.m)",
+        "\\b18\\b",
+        "(parking|garage)"
+      ],
+      "must_not_include": [
+        "check-?in (is |starts |from |opens )?(at |from )?\\b(12|13|14)([:.]?00)?\\b",
+        "(free|complimentary) (private |hotel )?parking",
+        "parking is (free|included|complimentary)"
+      ]
+    },
+    "judge_notes": "Gives check-in 15:00, check-out 11:00 and the garage price of 18 EUR per night, without inventing an early check-in."
+  },
+  {
+    "id": "grounded-saas-plan-fit-en",
+    "channel": "live_chat",
+    "language": "en",
+    "category": "grounded_answer",
+    "business": {
+      "name": "Tallyfold",
+      "type": "saas",
+      "description": "Simple invoicing app for small studios and freelancers.",
+      "knowledge_base": [
+        "Free trial: 14 days, no credit card required.",
+        "Starter plan: 12 USD per month, 1 user, up to 20 invoices per month.",
+        "Team plan: 29 USD per month, up to 5 users, unlimited invoices.",
+        "Annual billing saves 20 percent.",
+        "Support: live chat Mon-Fri 9:00-17:00 CET, email any time."
+      ]
+    },
+    "history": [],
+    "message": "we're a 4 person studio and send maybe 60 invoices a month. which plan fits and what does it cost?",
+    "expect": {
+      "must_include_all": [
+        "\\bteam\\b",
+        "\\b29\\b"
+      ],
+      "must_not_include": [
+        "\\$\\s*(19|39|49|59)\\b",
+        "\\b(19|39|49|59)\\s*(usd|dollars)",
+        "unlimited users",
+        "\\b(6|six|10|ten) users"
+      ]
+    },
+    "judge_notes": "Recommends the Team plan at 29 USD per month because of 4 users and 60 invoices. May mention the 14 day trial."
+  },
+  {
+    "id": "grounded-ecommerce-return-window-en",
+    "channel": "messenger",
+    "language": "en",
+    "category": "grounded_answer",
+    "business": {
+      "name": "Nordkap Outdoor",
+      "type": "ecommerce",
+      "description": "Online shop for outdoor clothing, shipping from Hamburg.",
+      "knowledge_base": [
+        "Returns: within 30 days of delivery, items must be unused and in original packaging.",
+        "Return shipping is free for orders in Germany using the prepaid label in the parcel. Other countries pay return shipping.",
+        "Refunds go to the original payment method within 5-7 business days after we receive the parcel.",
+        "Sale items can be exchanged but not refunded.",
+        "Standard delivery: 2-4 business days."
+      ]
+    },
+    "history": [
+      {
+        "role": "customer",
+        "text": "Hi, I ordered a rain jacket last week, order NK-48213. I live in Munich."
+      },
+      {
+        "role": "agent",
+        "text": "Hi! Happy to help with order NK-48213. What can I do for you?"
+      },
+      {
+        "role": "customer",
+        "text": "It was full price, not a sale item."
+      }
+    ],
+    "message": "It arrived yesterday and it's too big. Can I send it back and how long until I get my money?",
+    "expect": {
+      "must_include_all": [
+        "\\b30\\b",
+        "5\\s*(-|to|or|and)\\s*7"
+      ],
+      "must_not_include": [
+        "\\b(14|60|90)[ -]days?",
+        "(1|2|3)\\s*(-|to)\\s*(3|4)\\s*weeks",
+        "restocking",
+        "(return|shipping) (fee|cost)s? of \\d"
+      ]
+    },
+    "judge_notes": "Confirms the 30 day return window and the 5-7 business day refund after receipt, and can mention the free prepaid label for Germany."
+  },
+  {
+    "id": "grounded-clinic-saturday-tr",
+    "channel": "telegram",
+    "language": "tr",
+    "category": "grounded_answer",
+    "business": {
+      "name": "Aegean Smile Dental Clinic",
+      "type": "clinic",
+      "description": "Dental clinic in Izmir.",
+      "knowledge_base": [
+        "Opening hours: Mon-Fri 9:00-18:00, Saturday 9:00-13:00, closed Sunday.",
+        "Address: 14 Example Street, Alsancak, Izmir.",
+        "Initial examination: free of charge.",
+        "Teeth cleaning: 900 TRY.",
+        "Appointments: by phone +90 000 000 00 00 or in this chat.",
+        "We accept cash, credit card and bank transfer."
+      ]
+    },
+    "history": [],
+    "message": "Merhaba, cumartesi açık mısınız? İlk muayene ücretli mi?",
+    "expect": {
+      "must_include_all": [
+        "\\b13([:.]?00)?\\b",
+        "(ücretsiz|ücret almıyoruz|ücretli değil|bedelsiz|ücret yok|ücret alınmaz)"
+      ],
+      "must_not_include": [
+        "ücretlidir",
+        "muayene[^.]{0,30}\\d+\\s*(tl|₺|lira)",
+        "cumartesi[^.]{0,20}kapalı",
+        "pazar[^.]{0,20}açığız"
+      ]
+    },
+    "judge_notes": "Answers in Turkish: open on Saturday until 13:00 and the first examination is free. Offers to book an appointment."
+  },
+  {
+    "id": "grounded-course-refund-es",
+    "channel": "whatsapp",
+    "language": "es",
+    "category": "grounded_answer",
+    "business": {
+      "name": "Pixel Pantry Academy",
+      "type": "course_creator",
+      "description": "Online food photography course taught by Marta Quinn.",
+      "knowledge_base": [
+        "Course: Food Photography Basics, 6 modules, 24 video lessons, lifetime access.",
+        "Price: 89 EUR one-time, or 3 payments of 32 EUR.",
+        "Refund policy: 14 day money-back guarantee, no questions asked.",
+        "Live Q&A with the instructor every second Thursday at 18:00 CET.",
+        "Certificate of completion included."
+      ]
+    },
+    "history": [],
+    "message": "Hola! Si compro el curso y no me convence, ¿puedo pedir que me devuelvan el dinero? ¿Y cuánto cuesta?",
+    "expect": {
+      "must_include_all": [
+        "\\b14\\b",
+        "\\b89\\b"
+      ],
+      "must_not_include": [
+        "\\b(7|30|60)\\s*d[ií]as",
+        "garant[ií]a de (7|30|60)",
+        "\\b(79|97|99|149)\\s*(€|eur|euro|\\$|usd)"
+      ]
+    },
+    "judge_notes": "Confirms the 14 day money-back guarantee and the 89 EUR price (or 3 payments of 32 EUR), in natural Spanish."
+  },
+  {
+    "id": "grounded-agency-prazo-pt",
+    "channel": "x",
+    "language": "pt",
+    "category": "grounded_answer",
+    "business": {
+      "name": "Estúdio Cajá",
+      "type": "agency",
+      "description": "Estúdio de design e desenvolvimento web em Recife.",
+      "knowledge_base": [
+        "Prazo de entrega de um site institucional: 4 a 6 semanas após a aprovação do briefing.",
+        "Site institucional a partir de R$ 6.500.",
+        "Pagamento: 50% na aprovação e 50% na entrega.",
+        "Atendimento de segunda a sexta, das 9h às 18h."
+      ]
+    },
+    "history": [],
+    "message": "Oi! Quanto tempo leva pra fazer um site institucional? E como funciona o pagamento?",
+    "expect": {
+      "must_include_all": [
+        "4\\s*(a|à|-|e|ou)\\s*6",
+        "50\\s*%"
+      ],
+      "must_not_include": [
+        "\\b(2|3|8|10|12)\\s*(a|-)\\s*\\d+\\s*(semanas|dias|meses)",
+        "100\\s*%\\s*(na|no|antecipad)",
+        "\\b30\\s*%"
+      ],
+      "max_chars": 280
+    },
+    "judge_notes": "Gives 4 to 6 weeks after the briefing is approved and the 50/50 payment split, short enough for X."
+  }
+]

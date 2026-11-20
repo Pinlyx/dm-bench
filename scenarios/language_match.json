@@ -1,0 +1,284 @@
+[
+  {
+    "id": "lang-tr-cafe-switch-instagram",
+    "channel": "instagram",
+    "language": "tr",
+    "category": "language_match",
+    "business": {
+      "name": "Kadikoy Bean Lab",
+      "type": "cafe",
+      "description": "Specialty coffee shop in Istanbul.",
+      "knowledge_base": [
+        "Opening hours: Mon-Fri 8:00-19:00, Sat-Sun 9:00-17:00.",
+        "Oat milk and almond milk are available at no extra charge.",
+        "Filter coffee: 85 TRY. Flat white: 120 TRY.",
+        "Beans: 250 g bag of Ethiopia Guji, 480 TRY, whole or ground.",
+        "Free Wi-Fi. Laptops are welcome until 17:00 on weekends.",
+        "Reservations are not needed for groups under 6 people."
+      ]
+    },
+    "history": [
+      {
+        "role": "customer",
+        "text": "Hi, are you open on Sundays?"
+      },
+      {
+        "role": "agent",
+        "text": "Hi! Yes, we are open on Sundays from 9:00 to 17:00."
+      }
+    ],
+    "message": "Süper, teşekkürler! Yulaf sütü var mı peki? Fiyata fark ediyor mu?",
+    "expect": {
+      "must_include_all": [
+        "yulaf|\\boat\\b"
+      ],
+      "must_include_any": [
+        "ek ücret",
+        "ücretsiz",
+        "fark (yok|etmiyor|olmuyor)",
+        "ekstra",
+        "ilave",
+        "no extra"
+      ],
+      "must_not_include": [
+        "\\b\\d+\\s*(tl|try|₺|lira)\\s*(ek|extra|fazla)"
+      ]
+    },
+    "judge_notes": "The customer switched from English to Turkish in the latest message. An excellent reply is in natural Turkish, confirms oat milk is available at no extra charge, and stays short and friendly."
+  },
+  {
+    "id": "lang-tr-saas-mixed-live-chat",
+    "channel": "live_chat",
+    "language": "tr",
+    "category": "language_match",
+    "business": {
+      "name": "Tasklane",
+      "type": "saas",
+      "description": "Project management software for small teams.",
+      "knowledge_base": [
+        "Plans: Free (up to 3 projects), Team 12 USD per user per month, Business 24 USD per user per month.",
+        "Annual billing saves 20 percent.",
+        "Team has a 14-day free trial and no credit card is required to start it.",
+        "Dashboard widgets and Gantt view are included from the Team plan upward.",
+        "Data export in CSV and JSON is available on every plan.",
+        "Support: email and live chat on weekdays 9:00-18:00 CET."
+      ]
+    },
+    "history": [
+      {
+        "role": "customer",
+        "text": "Hello, I'm looking at your pricing page."
+      },
+      {
+        "role": "agent",
+        "text": "Hi! Happy to help. Which plan are you looking at?"
+      }
+    ],
+    "message": "Selam, Team plan'ında dashboard ve Gantt view var mı? Free trial için credit card gerekiyor mu?",
+    "expect": {
+      "must_include_all": [
+        "14[- ]?(gün|day)",
+        "(gerekmiyor|gerekmez|gerek yok|istemiyoruz|istenmiyor|şart değil|olmadan|no credit card|without a? ?(credit )?card)"
+      ],
+      "must_not_include": [
+        "\\b(7|10|30)[- ]?(gün|day)"
+      ]
+    },
+    "judge_notes": "The customer mixes Turkish with English product words. An excellent reply is written in Turkish (English product terms are fine), confirms dashboard and Gantt are in Team and that the 14-day trial needs no credit card."
+  },
+  {
+    "id": "lang-es-hotel-agent-wrong-language-whatsapp",
+    "channel": "whatsapp",
+    "language": "es",
+    "category": "language_match",
+    "business": {
+      "name": "Hotel Bahia Azul",
+      "type": "hotel",
+      "description": "Family-run beach hotel with 42 rooms.",
+      "knowledge_base": [
+        "Check-in from 15:00, check-out until 12:00.",
+        "Early check-in from 12:00 costs 25 EUR, subject to availability on the day.",
+        "Late check-out until 15:00 costs 30 EUR, subject to availability on the day.",
+        "Breakfast buffet 7:00-10:30, 14 EUR per person, free for children under 6.",
+        "Free parking for guests.",
+        "Airport shuttle: 35 EUR per trip, book at least 24 hours ahead."
+      ]
+    },
+    "context": {
+      "hours_since_last_customer_message": 0.05
+    },
+    "history": [
+      {
+        "role": "customer",
+        "text": "Hola, tenemos reserva para el sábado. ¿A qué hora podemos entrar?"
+      },
+      {
+        "role": "agent",
+        "text": "Hello! Check-in starts at 15:00."
+      }
+    ],
+    "message": "Perdona, ¿me puedes responder en español? Y si llegamos a las 12, ¿se puede entrar antes?",
+    "expect": {
+      "must_include_all": [
+        "25",
+        "(disponibilidad|depend|sujeto|según|confirm)"
+      ],
+      "must_not_include": [
+        "\\b(hello|sorry|of course|early check-in costs)\\b"
+      ]
+    },
+    "judge_notes": "A previous agent turn wrongly answered in English. An excellent reply apologises briefly, answers in Spanish, gives the 25 EUR early check-in from 12:00 and says it depends on availability."
+  },
+  {
+    "id": "lang-de-clinic-switch-messenger",
+    "channel": "messenger",
+    "language": "de",
+    "category": "language_match",
+    "business": {
+      "name": "Lakeside Physio Clinic",
+      "type": "clinic",
+      "description": "Physiotherapy practice treating back and joint problems.",
+      "knowledge_base": [
+        "Opening hours: Mon-Thu 8:00-19:00, Fri 8:00-15:00.",
+        "Initial assessment (45 min): 70 EUR. Follow-up session (30 min): 50 EUR.",
+        "Appointments can be booked at example.com/book or by replying here.",
+        "Please arrive 10 minutes early for the first visit and wear comfortable clothing.",
+        "Free cancellation up to 24 hours before the appointment, otherwise 50 percent of the fee."
+      ]
+    },
+    "context": {
+      "hours_since_last_customer_message": 0.2
+    },
+    "history": [
+      {
+        "role": "customer",
+        "text": "Hi, do you treat back pain?"
+      },
+      {
+        "role": "agent",
+        "text": "Hello! Yes, we treat back pain and other joint and muscle problems."
+      }
+    ],
+    "message": "Super. Was kostet der erste Termin, wie lange dauert er, und habt ihr freitags auch nachmittags offen?",
+    "expect": {
+      "must_include_all": [
+        "\\b70\\b",
+        "\\b45\\b",
+        "15([:.]00| Uhr|h\\b)"
+      ]
+    },
+    "judge_notes": "The customer switched from English to German. An excellent reply is in German, gives the 70 EUR and 45 minutes for the first visit and says Friday closes at 15:00."
+  },
+  {
+    "id": "lang-pt-ecommerce-mixed-telegram",
+    "channel": "telegram",
+    "language": "pt",
+    "category": "language_match",
+    "business": {
+      "name": "Verde Vivo Plant Shop",
+      "type": "ecommerce",
+      "description": "Online shop for houseplants and pots, shipping across Portugal.",
+      "knowledge_base": [
+        "Standard delivery: 3 to 5 business days. Free over 60 EUR, otherwise 4.90 EUR.",
+        "Express delivery: next business day for orders placed before 14:00, 9.90 EUR.",
+        "A tracking link is sent by email when the order ships.",
+        "Returns accepted within 30 days for unused items in original packaging; return shipping is paid by the customer.",
+        "Plants are shipped Monday to Wednesday only, so they do not sit in a depot over the weekend."
+      ]
+    },
+    "history": [
+      {
+        "role": "customer",
+        "text": "hi, do you ship to Lisbon?"
+      },
+      {
+        "role": "agent",
+        "text": "Hi! Yes, we ship to all of Portugal."
+      }
+    ],
+    "message": "Legal! Então, qual o prazo do delivery standard e o tracking chega por onde? Se eu comprar 70 euros, pago frete?",
+    "expect": {
+      "must_include_all": [
+        "3\\s*(a|à|-|até|e|ou)\\s*5",
+        "e-?mail",
+        "(gr[aá]tis|gratuit|sem (custo|cobran)|n[aã]o (paga|cobr|h[aá])|frete gr)"
+      ]
+    },
+    "judge_notes": "The customer writes Portuguese with English words (delivery, tracking). An excellent reply is in Portuguese, gives 3 to 5 business days, says the tracking link comes by email and that 70 EUR is above the 60 EUR free shipping threshold."
+  },
+  {
+    "id": "lang-ru-course-switch-whatsapp",
+    "channel": "whatsapp",
+    "language": "ru",
+    "category": "language_match",
+    "business": {
+      "name": "Pixel Pulse Academy",
+      "type": "course_creator",
+      "description": "Online design school with live cohort courses.",
+      "knowledge_base": [
+        "UX Foundations: 8 weeks, live classes Tuesday and Thursday 19:00-20:30 CET, recordings available for 12 months.",
+        "Price: 490 EUR, or 3 monthly payments of 170 EUR.",
+        "Next cohort starts 3 March.",
+        "Money-back guarantee within 14 days of the first class.",
+        "No prior experience needed.",
+        "A certificate is issued after finishing all 4 projects."
+      ]
+    },
+    "context": {
+      "hours_since_last_customer_message": 0.1
+    },
+    "history": [
+      {
+        "role": "customer",
+        "text": "Hi, I saw your UX course."
+      },
+      {
+        "role": "agent",
+        "text": "Hi! Yes, UX Foundations starts on 3 March. What would you like to know?"
+      }
+    ],
+    "message": "Здравствуйте! Подскажите, пожалуйста, сколько стоит курс и можно ли платить частями?",
+    "expect": {
+      "must_include_all": [
+        "490",
+        "170"
+      ]
+    },
+    "judge_notes": "The customer switched to Russian. An excellent reply is in natural Russian, states the 490 EUR price and the 3 monthly payments of 170 EUR, in two short sentences."
+  },
+  {
+    "id": "lang-ar-agency-switch-x",
+    "channel": "x",
+    "language": "ar",
+    "category": "language_match",
+    "business": {
+      "name": "Orbit Social Studio",
+      "type": "agency",
+      "description": "Social media management agency for small businesses.",
+      "knowledge_base": [
+        "Starter package: 450 USD per month, 12 posts per month and replies to comments on weekdays.",
+        "Growth package: 900 USD per month, 24 posts, short videos and a monthly report.",
+        "All packages are month-to-month with no long contract; cancel with 14 days notice.",
+        "We manage Instagram and TikTok accounts."
+      ]
+    },
+    "history": [
+      {
+        "role": "customer",
+        "text": "Hi, do you manage Instagram accounts for small shops?"
+      },
+      {
+        "role": "agent",
+        "text": "Hi! Yes, we manage Instagram and TikTok for small businesses."
+      }
+    ],
+    "message": "ممتاز. كم سعر الباقة الأساسية وهل يوجد عقد طويل؟",
+    "expect": {
+      "must_include_all": [
+        "(450|٤٥٠)",
+        "(شهري|شهر|بدون|لا يوجد|لا توجد|14|١٤)"
+      ]
+    },
+    "judge_notes": "The customer switched to Arabic on X. An excellent reply is short Arabic text (under 280 characters) giving the 450 USD monthly Starter price and saying there is no long contract."
+  }
+]

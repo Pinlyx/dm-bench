@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dm-bench"
+version = "0.1.0"
+description = "Open benchmark for AI agents that answer customer direct messages on Instagram, WhatsApp, Messenger, Telegram, X and live chat."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [{ name = "Pinlyx" }]
+keywords = ["benchmark", "llm", "ai-agent", "customer-support", "evaluation", "whatsapp", "instagram", "chatbot", "dm"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Communications :: Chat",
+]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.urls]
+Homepage = "https://github.com/Pinlyx/dm-bench"
+Repository = "https://github.com/Pinlyx/dm-bench"
+Issues = "https://github.com/Pinlyx/dm-bench/issues"
+
+[project.scripts]
+dm-bench = "dm_bench.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

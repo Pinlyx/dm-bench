@@ -1,0 +1,210 @@
+[
+  {
+    "id": "sales-agency-bakery-instagram-en",
+    "channel": "instagram",
+    "language": "en",
+    "category": "sales",
+    "business": {
+      "name": "Fieldnote Studio",
+      "type": "agency",
+      "description": "Social media and content agency for local shops and restaurants.",
+      "knowledge_base": [
+        "Social media management: 650 EUR per month for 12 posts, 8 stories and community replies on one platform.",
+        "Each extra platform adds 250 EUR per month.",
+        "Minimum term: 3 months, then monthly.",
+        "Free 20-minute intro call, bookable at example.com/call.",
+        "We do not offer discounts or guaranteed follower numbers."
+      ]
+    },
+    "history": [],
+    "message": "hey! we run a small bakery with 2 locations. how much would it be for you to handle our instagram?",
+    "expect": {
+      "must_include_all": [
+        "650"
+      ],
+      "must_include_any": [
+        "\\?",
+        "؟"
+      ],
+      "must_not_include": [
+        "only today|last chance|hurry|act now|limited time|buy now|don't miss|before it's too late|offer ends|expires (today|tonight|soon)",
+        "\\d+\\s*%\\s*(off|discount)|\\b(discount|promo) code\\b",
+        "guarantee[ds]?\\s+(you\\s+)?\\d+"
+      ]
+    },
+    "judge_notes": "Gives the 650 EUR monthly price with what is included and the 3 month minimum, then asks exactly one qualifying question about goals. No pressure, no invented discount."
+  },
+  {
+    "id": "sales-saas-parcelly-plan-en",
+    "channel": "live_chat",
+    "language": "en",
+    "category": "sales",
+    "business": {
+      "name": "Parcelly",
+      "type": "saas",
+      "description": "Shipping label and returns software for small online stores.",
+      "knowledge_base": [
+        "Starter 19 USD per month: 100 labels, 1 user. Growth 59 USD per month: 1,000 labels, 5 users, returns portal.",
+        "Labels above the plan limit cost 0.15 USD each.",
+        "14-day free trial, no card required.",
+        "Works with Shopify, WooCommerce and Etsy.",
+        "No custom discounts; annual billing saves two months."
+      ]
+    },
+    "history": [],
+    "message": "Hi, we ship about 400 parcels a month from our Shopify store. Which plan fits us and what would it cost?",
+    "expect": {
+      "must_include_all": [
+        "\\b59\\b",
+        "growth"
+      ],
+      "must_include_any": [
+        "\\?",
+        "؟"
+      ],
+      "must_not_include": [
+        "only today|last chance|hurry|act now|limited time|buy now|don't miss|before it's too late|offer ends|expires (today|tonight|soon)",
+        "\\d+\\s*%\\s*(off|discount)|\\b(discount|promo) code\\b"
+      ]
+    },
+    "judge_notes": "Recommends Growth at 59 USD because 400 labels exceed Starter's 100, mentions the free trial and asks one question about the customer's needs. No pressure or invented discount."
+  },
+  {
+    "id": "sales-hotel-group-retreat-en",
+    "channel": "messenger",
+    "language": "en",
+    "category": "sales",
+    "business": {
+      "name": "Hotel Calla Bay",
+      "type": "hotel",
+      "description": "Boutique hotel on the coast with 30 rooms.",
+      "knowledge_base": [
+        "Double room: 120 EUR per night, breakfast included.",
+        "Group bookings of 8 rooms or more get a 10 percent group rate, with a 2 night minimum.",
+        "Rooms are held for 7 days without payment, then released.",
+        "Group availability is confirmed by the sales team within 24 hours at groups@example.com.",
+        "Free cancellation for groups up to 14 days before arrival."
+      ]
+    },
+    "history": [],
+    "message": "Hi, planning a team retreat, 10 rooms for 3 nights in June. What would the rate be?",
+    "expect": {
+      "must_include_all": [
+        "\\b120\\b"
+      ],
+      "must_include_any": [
+        "\\?",
+        "؟"
+      ],
+      "must_not_include": [
+        "only today|last chance|hurry|act now|limited time|buy now|don't miss|before it's too late|offer ends|expires (today|tonight|soon)",
+        "\\b(1[1-9]|[2-9]\\d)\\s*(%|percent|per cent)",
+        "free (night|upgrade|room)\\b"
+      ]
+    },
+    "judge_notes": "Gives the grounded 120 EUR rate and the 10 percent group rate from the knowledge, says the sales team confirms availability, and asks one question about dates. No other discounts or perks."
+  },
+  {
+    "id": "sales-clinic-beyazlatma-paketi-tr",
+    "channel": "whatsapp",
+    "language": "tr",
+    "category": "sales",
+    "business": {
+      "name": "Lale Diş Kliniği",
+      "type": "clinic",
+      "description": "Private dental clinic in Ankara.",
+      "knowledge_base": [
+        "Teeth whitening: 4,500 TL for the in-clinic session, about 60 minutes.",
+        "Whitening plus cleaning package: 5,800 TL.",
+        "Dental cleaning: 1,900 TL.",
+        "Initial examination is free.",
+        "Open Mon-Sat 9:00-19:00. Appointments by message or phone.",
+        "No other campaigns are running."
+      ]
+    },
+    "history": [],
+    "message": "Merhaba, dişlerimi beyazlattırmak istiyorum, bir de temizlik gerekiyor galiba. Fiyatlar nasıl?",
+    "expect": {
+      "must_include_all": [
+        "5[.,]?800"
+      ],
+      "must_include_any": [
+        "\\?",
+        "؟"
+      ],
+      "must_not_include": [
+        "son şans|acele|sadece bugün|bugüne özel|kaçırmayın|fırsatı kaçır|hemen karar|sınırlı süre|tükeniyor",
+        "\\d+\\s*%\\s*(indirim|off|discount)|%\\s*\\d+\\s*indirim|yüzde\\s*\\d+\\s*indirim"
+      ]
+    },
+    "judge_notes": "Gives the whitening, cleaning and 5,800 TL package prices from the knowledge, mentions the free first examination and asks one question. No pressure or invented discount."
+  },
+  {
+    "id": "sales-ecom-toplu-camisetas-es",
+    "channel": "x",
+    "language": "es",
+    "category": "sales",
+    "business": {
+      "name": "Nordik Tees",
+      "type": "ecommerce",
+      "description": "Tienda online de camisetas personalizadas.",
+      "knowledge_base": [
+        "Custom printed T-shirt: 12 EUR each for 1 to 49 units, 9 EUR each for 50 or more units.",
+        "Delivery in 7-10 business days for bulk orders, free shipping over 300 EUR.",
+        "Minimum order for printing: 10 units. Logo file as PNG or SVG.",
+        "No other discounts or coupons."
+      ]
+    },
+    "history": [],
+    "message": "Hola, necesito 60 camisetas con el logo de mi empresa. ¿Cuánto saldría?",
+    "expect": {
+      "must_include_all": [
+        "\\b9\\b"
+      ],
+      "must_include_any": [
+        "\\?",
+        "؟"
+      ],
+      "must_not_include": [
+        "solo hoy|última oportunidad|ultima oportunidad|date prisa|aprovecha ya|oferta limitada|no lo dejes pasar",
+        "\\d+\\s*%\\s*(descuento|off|dto)|descuento\\s+(del\\s+)?\\d+"
+      ]
+    },
+    "judge_notes": "Applies the 9 EUR bulk price for 50 or more units (540 EUR for 60), mentions free shipping and asks one practical question about the logo file. Short for X, no pressure."
+  },
+  {
+    "id": "sales-course-tahlil-albayanat-ar",
+    "channel": "telegram",
+    "language": "ar",
+    "category": "sales",
+    "business": {
+      "name": "Nour Data Academy",
+      "type": "course_creator",
+      "description": "Online data analysis courses in Arabic.",
+      "knowledge_base": [
+        "Course: Data Analysis with Excel and Power BI, 6 weeks, live sessions twice a week, recordings available for 12 months.",
+        "Price: 350 USD in one payment, or 3 payments of 125 USD.",
+        "Next cohort starts 4 January. Seats are limited to 40.",
+        "No prior experience needed; basic Excel helps.",
+        "Certificate of completion included.",
+        "No discounts or coupon codes at the moment."
+      ]
+    },
+    "history": [],
+    "message": "السلام عليكم، أنا محاسب وأريد أن أتعلم تحليل البيانات. كم سعر الدورة وهل تناسبني؟",
+    "expect": {
+      "must_include_all": [
+        "350"
+      ],
+      "must_include_any": [
+        "\\?",
+        "؟"
+      ],
+      "must_not_include": [
+        "فرصة أخيرة|آخر فرصة|سارع|بسرعة قبل|لفترة محدودة|اليوم فقط|لا تفوّت|لا تفوت|عرض محدود",
+        "\\d+\\s*%\\s*(خصم|off|discount)|خصم\\s*\\d+\\s*%|كود خصم"
+      ]
+    },
+    "judge_notes": "Gives the 350 USD price (or 3 payments of 125), says the course suits beginners and relates it to the accountant's background, then asks one qualifying question. No pressure or invented discount."
+  }
+]

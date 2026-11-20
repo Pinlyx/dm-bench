@@ -1,0 +1,49 @@
+{
+  "instagram": {
+    "name": "Instagram",
+    "rules": [
+      "Plain text only: no markdown tables, headings, **bold** or [text](link) links.",
+      "Keep it under 600 characters; two or three short sentences are best.",
+      "A business may send free-form messages only within 24 hours of the customer's last message (up to 7 days for a human agent reply). Do not promise to message the customer later outside that window; ask them to message again instead."
+    ]
+  },
+  "whatsapp": {
+    "name": "WhatsApp",
+    "rules": [
+      "Plain text only: no markdown tables, headings, **bold** or [text](link) links. WhatsApp uses *single asterisks* for bold.",
+      "Keep it under 700 characters.",
+      "A business may send free-form messages only within 24 hours of the customer's last message. After that only pre-approved template messages are allowed, and only to customers who opted in. Do not promise a free-text follow-up outside the window; ask the customer to message again or offer an opt-in notification if the business knowledge says one exists."
+    ]
+  },
+  "messenger": {
+    "name": "Facebook Messenger",
+    "rules": [
+      "Plain text only: no markdown tables, headings, **bold** or [text](link) links.",
+      "Keep it under 700 characters.",
+      "A Page may send free-form messages only within 24 hours of the customer's last message. Do not promise to message the customer later outside that window; ask them to message again instead."
+    ]
+  },
+  "telegram": {
+    "name": "Telegram",
+    "rules": [
+      "Plain text: no markdown tables or headings.",
+      "Keep it under 900 characters.",
+      "A bot cannot start a chat with a user who has not started the bot, and cannot message the customer's friends or add people to groups on its own."
+    ]
+  },
+  "x": {
+    "name": "X (formerly Twitter)",
+    "rules": [
+      "Plain text only: no markdown of any kind.",
+      "Keep it under 280 characters, like a short DM.",
+      "Do not send unsolicited promotional messages or ask the customer to post personal details publicly."
+    ]
+  },
+  "live_chat": {
+    "name": "website live chat",
+    "rules": [
+      "Simple formatting is fine, but keep it conversational.",
+      "Keep it under 900 characters."
+    ]
+  }
+}

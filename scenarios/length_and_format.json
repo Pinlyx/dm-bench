@@ -1,0 +1,207 @@
+[
+  {
+    "id": "format-x-compare-three-plans-en",
+    "channel": "x",
+    "language": "en",
+    "category": "length_and_format",
+    "business": {
+      "name": "Mailnest",
+      "type": "saas",
+      "description": "Email marketing software for small shops.",
+      "knowledge_base": [
+        "Starter: 15 USD per month, 1,000 contacts, 5,000 emails per month.",
+        "Growth: 49 USD per month, 10,000 contacts, unlimited emails, automations.",
+        "Scale: 149 USD per month, 50,000 contacts, unlimited emails, automations, priority support, dedicated IP.",
+        "Full comparison: example.com/pricing."
+      ]
+    },
+    "history": [],
+    "message": "Can you compare your 3 plans for me? Features, limits, prices, everything pls",
+    "expect": {
+      "max_chars": 260,
+      "must_include_all": [
+        "\\b15\\b",
+        "\\b49\\b",
+        "\\b149\\b"
+      ]
+    },
+    "judge_notes": "An X DM must stay short. An excellent reply gives the three prices with one key limit each in plain text and points to example.com/pricing for the full comparison, under 260 characters, no markdown."
+  },
+  {
+    "id": "format-whatsapp-price-table-en",
+    "channel": "whatsapp",
+    "language": "en",
+    "category": "length_and_format",
+    "business": {
+      "name": "Juniper & Oak Cafe",
+      "type": "cafe",
+      "description": "Bakery cafe in Leeds.",
+      "knowledge_base": [
+        "Espresso 2.40 GBP, flat white 3.60 GBP, latte 3.90 GBP.",
+        "Croissant 2.80 GBP, banana bread 3.20 GBP.",
+        "Avocado toast 8.50 GBP, smoothie 5.50 GBP.",
+        "Open daily 8:00-17:00."
+      ]
+    },
+    "context": {
+      "hours_since_last_customer_message": 0.1
+    },
+    "history": [],
+    "message": "Hi! Can you send me a table of all your prices? Like a proper table please",
+    "expect": {
+      "max_chars": 400,
+      "must_include_all": [
+        "3[.,]60",
+        "8[.,]50"
+      ]
+    },
+    "judge_notes": "WhatsApp does not render markdown tables. An excellent reply lists the prices as short plain-text lines (for example grouped drinks, bakes, food), never with pipe characters, and stays under 400 characters."
+  },
+  {
+    "id": "format-instagram-curriculum-en",
+    "channel": "instagram",
+    "language": "en",
+    "category": "length_and_format",
+    "business": {
+      "name": "Clay & Wheel Studio",
+      "type": "course_creator",
+      "description": "Online pottery courses.",
+      "knowledge_base": [
+        "Modern Pottery course: 10 modules over 6 weeks, self-paced with 2 live Q&As.",
+        "Topics: wedging and centering, hand-building, wheel basics, glazing, firing, finishing.",
+        "Full week-by-week curriculum with every lesson listed: example.com/curriculum.",
+        "Price: 180 EUR with lifetime access."
+      ]
+    },
+    "context": {
+      "hours_since_last_customer_message": 0.1
+    },
+    "history": [],
+    "message": "Hi! Can you list every single lesson in every module? I want all the detail before I buy.",
+    "expect": {
+      "max_chars": 450,
+      "must_include_all": [
+        "example\\.com/curriculum",
+        "\\b10\\b"
+      ]
+    },
+    "judge_notes": "The customer invites a very long answer. An excellent reply summarises the course in two or three short sentences (10 modules, 6 weeks, main topics), points to example.com/curriculum for every lesson, and stays plain text under 450 characters."
+  },
+  {
+    "id": "format-messenger-de-hotel-room-table",
+    "channel": "messenger",
+    "language": "de",
+    "category": "length_and_format",
+    "business": {
+      "name": "Hotel Alpenblick",
+      "type": "hotel",
+      "description": "Mountain hotel in Tyrol.",
+      "knowledge_base": [
+        "Room types per night, breakfast included: Single 89 EUR, Double 129 EUR, Family room 169 EUR.",
+        "City tax: 3 EUR per person per night.",
+        "Check-in from 15:00, check-out until 11:00.",
+        "Free cancellation up to 3 days before arrival."
+      ]
+    },
+    "context": {
+      "hours_since_last_customer_message": 0.1
+    },
+    "history": [],
+    "message": "Guten Tag! Schicken Sie mir bitte alle Zimmertypen mit den Preisen als Tabelle.",
+    "expect": {
+      "max_chars": 450,
+      "must_include_all": [
+        "\\b89\\b",
+        "\\b129\\b",
+        "\\b169\\b"
+      ]
+    },
+    "judge_notes": "Messenger does not render markdown tables. An excellent reply in German lists the three room types and prices in plain sentences or short lines, without pipes or markdown, and may mention the city tax."
+  },
+  {
+    "id": "format-telegram-pt-agency-packages",
+    "channel": "telegram",
+    "language": "pt",
+    "category": "length_and_format",
+    "business": {
+      "name": "Norte Studio",
+      "type": "agency",
+      "description": "Branding and web agency in Porto.",
+      "knowledge_base": [
+        "Brand Basic: 1,200 EUR, logo, colours and fonts, delivered in 2 weeks.",
+        "Brand Plus: 2,800 EUR, adds a 5-page website, delivered in 5 weeks.",
+        "Brand Full: 5,500 EUR, adds social media templates and 3 months of support, delivered in 8 weeks.",
+        "Details of each package: example.com/packages."
+      ]
+    },
+    "history": [],
+    "message": "Olá! Me explica cada pacote em detalhe, com títulos e tópicos: o que inclui, prazos, tudo?",
+    "expect": {
+      "max_chars": 500,
+      "must_include_all": [
+        "1[., ]?200",
+        "2[., ]?800",
+        "5[., ]?500"
+      ]
+    },
+    "judge_notes": "The customer invites a long, formatted answer. An excellent reply in Portuguese gives each package with its price, one key inclusion and delivery time in plain text without headings or bold, under 500 characters, and points to example.com/packages."
+  },
+  {
+    "id": "format-live-chat-ar-clinic-service-list",
+    "channel": "live_chat",
+    "language": "ar",
+    "category": "length_and_format",
+    "business": {
+      "name": "Al Noor Dental Center",
+      "type": "clinic",
+      "description": "Dental clinic.",
+      "knowledge_base": [
+        "Services and prices: check-up 40 USD, cleaning 60 USD, filling from 80 USD, whitening 250 USD, braces consultation 30 USD.",
+        "Full price list with conditions for each service: example.com/prices.",
+        "Opening hours: Sat-Thu 9:00-21:00, closed on Fridays.",
+        "First visit: please bring a photo ID."
+      ]
+    },
+    "history": [],
+    "message": "مرحباً، أريد قائمة كاملة بكل خدماتكم وأسعارها وشروط كل خدمة بالتفصيل.",
+    "expect": {
+      "max_chars": 500,
+      "must_include_all": [
+        "example\\.com/prices",
+        "(40|٤٠)"
+      ]
+    },
+    "judge_notes": "The customer asks for exhaustive detail. An excellent reply in Arabic summarises the main services and prices briefly, points to example.com/prices for the full list with conditions, and stays under 500 characters."
+  },
+  {
+    "id": "format-whatsapp-returns-policy-table-en",
+    "channel": "whatsapp",
+    "language": "en",
+    "category": "length_and_format",
+    "business": {
+      "name": "Stride & Co",
+      "type": "ecommerce",
+      "description": "Online shoe shop shipping from Manchester.",
+      "knowledge_base": [
+        "Returns: 30 days for unworn shoes in the original box. Free return label in the UK, 5 GBP elsewhere.",
+        "Exchanges: free size exchange within 30 days, subject to stock.",
+        "Refunds go to the original payment method within 5 business days of the parcel arriving.",
+        "Standard UK delivery: 2-3 working days, 3.99 GBP, free over 50 GBP.",
+        "Full policy: example.com/returns."
+      ]
+    },
+    "context": {
+      "hours_since_last_customer_message": 0.1
+    },
+    "history": [],
+    "message": "Can you send me your complete returns, exchange and shipping policy as a table with headings? I want to compare the options.",
+    "expect": {
+      "max_chars": 400,
+      "must_include_all": [
+        "\\b30\\b",
+        "example\\.com/returns"
+      ]
+    },
+    "judge_notes": "WhatsApp does not render tables or headings. An excellent reply gives a short plain-text summary of returns, exchanges, refunds and delivery and links example.com/returns for the full policy, under 400 characters."
+  }
+]

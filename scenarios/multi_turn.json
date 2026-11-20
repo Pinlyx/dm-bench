@@ -1,0 +1,355 @@
+[
+  {
+    "id": "multi-ecom-delivery-eta-en",
+    "channel": "live_chat",
+    "language": "en",
+    "category": "multi_turn",
+    "business": {
+      "name": "Birchline Home",
+      "type": "ecommerce",
+      "description": "Online home goods and small furniture shop.",
+      "knowledge_base": [
+        "Order 48213, jo.parker@example.com: shipped Mon 11 Nov via PostNord, 2 items.",
+        "Delivery time after dispatch: 3-5 business days in the UK.",
+        "If a parcel has not arrived 7 business days after dispatch, contact us and we open a trace with the carrier.",
+        "Returns within 30 days."
+      ]
+    },
+    "history": [
+      {
+        "role": "customer",
+        "text": "Hi, I'm waiting on an order, number 48213, placed last week."
+      },
+      {
+        "role": "agent",
+        "text": "Hi! Thanks, I have order 48213 noted. What can I check for you?"
+      },
+      {
+        "role": "customer",
+        "text": "It says shipped but nothing since Monday. My email on the order is jo.parker@example.com in case you need it."
+      },
+      {
+        "role": "agent",
+        "text": "Thanks Jo. Your order 48213 is marked as shipped on Monday 11 Nov with PostNord."
+      }
+    ],
+    "message": "ok so when will it arrive?",
+    "expect": {
+      "must_include_any": [
+        "3\\s*(to|-|and)\\s*5",
+        "three to five"
+      ],
+      "must_not_include": [
+        "(share|send|provide|give|confirm)\\s+(me\\s+|us\\s+)?(with\\s+)?(your|the)\\s+(order|email)",
+        "(what|which)('s| is)?\\s+(is\\s+)?(your|the)\\s+(order\\s+(number|no)|email)"
+      ]
+    },
+    "judge_notes": "Uses the order already identified in the conversation (48213, shipped Monday with PostNord) to give the 3 to 5 business day window and the trace policy, without asking again for order number or email."
+  },
+  {
+    "id": "multi-hotel-two-guests-en",
+    "channel": "instagram",
+    "language": "en",
+    "category": "multi_turn",
+    "business": {
+      "name": "The Willow Rooms",
+      "type": "hotel",
+      "description": "Guesthouse with 14 rooms near the old town of Ghent.",
+      "knowledge_base": [
+        "Standard room 95 EUR, Deluxe Garden 140 EUR per night, 1 adult, breakfast included.",
+        "Second adult in the same room: +25 EUR per night.",
+        "Deluxe Garden rooms face the courtyard garden and have a small terrace.",
+        "Rooms are booked at example.com/book or by reply from reception; the assistant cannot take payment.",
+        "Free cancellation up to 3 days before arrival."
+      ]
+    },
+    "history": [
+      {
+        "role": "customer",
+        "text": "Hi, do you have rooms free 12 to 14 May?"
+      },
+      {
+        "role": "agent",
+        "text": "Hi! Yes, we do. Standard is 95 EUR and Deluxe Garden is 140 EUR per night for 1 adult, breakfast included."
+      },
+      {
+        "role": "customer",
+        "text": "The Deluxe Garden sounds great. Is there a garden view?"
+      },
+      {
+        "role": "agent",
+        "text": "Yes, Deluxe Garden rooms look onto the courtyard garden and have a small terrace."
+      }
+    ],
+    "message": "and for two people? is that price the same, for the 2 nights?",
+    "expect": {
+      "must_include_all": [
+        "\\b165\\b"
+      ],
+      "must_not_include": [
+        "(which|what)\\s+(room|type|dates?)",
+        "(share|send|tell|give|confirm)\\s+(me\\s+|us\\s+)?(the\\s+|your\\s+)?(room type|dates)"
+      ]
+    },
+    "judge_notes": "Remembers the Deluxe Garden room and 12 to 14 May from earlier, adds the 25 EUR second adult supplement to get 165 EUR per night (330 for 2 nights) and points to the booking link."
+  },
+  {
+    "id": "multi-vet-confirm-slot-en",
+    "channel": "telegram",
+    "language": "en",
+    "category": "multi_turn",
+    "business": {
+      "name": "Willowbrook Vet Clinic",
+      "type": "clinic",
+      "description": "Veterinary clinic for cats and dogs.",
+      "knowledge_base": [
+        "Standard check-up: 45 EUR, 30 minutes.",
+        "Reception confirms every booking by message within 2 working hours; the assistant cannot confirm slots itself.",
+        "Open Mon-Fri 8:30-18:00.",
+        "Vaccination: 30 EUR per shot."
+      ]
+    },
+    "history": [
+      {
+        "role": "customer",
+        "text": "Hi, I need to book a check-up for my dog Biscuit, ideally next week."
+      },
+      {
+        "role": "agent",
+        "text": "Hello! Happy to help with Biscuit. I can offer Tuesday 17:00 or Friday 9:30. Which suits you better?"
+      },
+      {
+        "role": "customer",
+        "text": "Friday morning please. His vaccination booklet is up to date."
+      },
+      {
+        "role": "agent",
+        "text": "Lovely, Friday 9:30 it is for Biscuit's check-up. Reception confirms bookings, so I'll pass it on. Is there anything else?"
+      }
+    ],
+    "message": "great, can you confirm that now? and how much is it?",
+    "expect": {
+      "must_include_all": [
+        "\\b45\\b"
+      ],
+      "must_include_any": [
+        "fri(day)?",
+        "9[:.]30"
+      ],
+      "must_not_include": [
+        "(which|what)\\s+(day|time|slot)",
+        "what('s| is)\\s+(his|your dog's|the dog's|the pet's)\\s+name",
+        "(your|the)\\s+(booking|appointment|slot)\\s+(is|has been)\\s+confirmed",
+        "I(?:'ve| have) confirmed"
+      ]
+    },
+    "judge_notes": "Keeps the Friday 9:30 check-up for Biscuit from the history, says honestly that reception confirms within 2 working hours instead of claiming confirmation, and gives the 45 EUR price."
+  },
+  {
+    "id": "multi-saas-double-charge-en",
+    "channel": "x",
+    "language": "en",
+    "category": "multi_turn",
+    "business": {
+      "name": "Brightdesk",
+      "type": "saas",
+      "description": "Help desk software for small support teams.",
+      "knowledge_base": [
+        "Billing questions are reviewed by the billing team within 2 business days; they reply by email.",
+        "Refund decisions and timing are made by the billing team only.",
+        "Plans: Basic 15 USD per month, Pro 39 USD per month.",
+        "Support hours: Mon-Fri 9:00-17:00 UTC."
+      ]
+    },
+    "history": [
+      {
+        "role": "customer",
+        "text": "I was charged twice for March on the 3rd. Email on the account is sam.lee@example.com"
+      },
+      {
+        "role": "agent",
+        "text": "Sorry about that, Sam. I've passed the double charge to our billing team. They review within 2 business days and will email sam.lee@example.com."
+      },
+      {
+        "role": "customer",
+        "text": "ok thanks"
+      },
+      {
+        "role": "agent",
+        "text": "You're welcome. Anything else?"
+      }
+    ],
+    "message": "so when exactly do I get the second payment back?",
+    "expect": {
+      "handoff": true,
+      "must_include_any": [
+        "2 business days",
+        "two business days",
+        "billing team"
+      ],
+      "must_not_include": [
+        "(share|send|provide|give|confirm)\\s+(me\\s+|us\\s+)?(with\\s+)?(your|the)\\s+(order|email)",
+        "(what|which)('s| is)?\\s+(is\\s+)?(your|the)\\s+(order\\s+(number|no)|email)",
+        "refund (approved|processed|issued)",
+        "\\b(refunded|credited)\\s+(today|tomorrow|within \\d+ hours)"
+      ]
+    },
+    "judge_notes": "Stays consistent with the earlier promise (billing team reviews within 2 business days, replies by email), does not invent a refund date, does not ask for the email again, and hands off."
+  },
+  {
+    "id": "multi-course-rassrochka-ru",
+    "channel": "messenger",
+    "language": "ru",
+    "category": "multi_turn",
+    "business": {
+      "name": "Lingua Loft",
+      "type": "course_creator",
+      "description": "Online language school with Spanish and German courses.",
+      "knowledge_base": [
+        "Spanish A1 course: Standard plan 12,000 RUB for the whole 3-month course, Premium 19,000 RUB.",
+        "Standard: group classes Tue and Thu at 19:00.",
+        "Installments: Standard and Premium can be paid in 3 interest-free monthly payments, no bank needed.",
+        "The trial lesson is free."
+      ]
+    },
+    "history": [
+      {
+        "role": "customer",
+        "text": "Здравствуйте! Хочу записаться на курс испанского для начинающих."
+      },
+      {
+        "role": "agent",
+        "text": "Здравствуйте! С удовольствием. У нас есть тарифы «Стандарт» и «Премиум». Какой вас интересует?"
+      },
+      {
+        "role": "customer",
+        "text": "Стандарт, пожалуйста. Занимаюсь обычно по вечерам."
+      },
+      {
+        "role": "agent",
+        "text": "Отлично, тариф «Стандарт» подойдёт: занятия по вторникам и четвергам в 19:00."
+      }
+    ],
+    "message": "а рассрочка на него есть?",
+    "expect": {
+      "must_include_any": [
+        "\\b3\\b",
+        "три",
+        "трё?х",
+        "трем"
+      ],
+      "must_not_include": [
+        "(какой|какой именно|какое)\\s+(тариф|курс)",
+        "(напишите|укажите|назовите)\\s+(какой|тариф)",
+        "рассрочки нет|рассрочка недоступна|нет рассрочки"
+      ]
+    },
+    "judge_notes": "Remembers the Standard plan chosen earlier, confirms interest-free installments in 3 payments and does not ask which plan again. Russian, warm and short."
+  },
+  {
+    "id": "multi-agency-relaunch-dauer-de",
+    "channel": "live_chat",
+    "language": "de",
+    "category": "multi_turn",
+    "business": {
+      "name": "Nordlicht Studio",
+      "type": "agency",
+      "description": "Web design and development agency in Hamburg.",
+      "knowledge_base": [
+        "Website relaunch for small businesses: 6 to 8 weeks from kickoff to launch, from 4,800 EUR.",
+        "Discovery calls are 20 minutes, Mon-Fri 9:00-17:00.",
+        "Hosting and maintenance: 49 EUR per month."
+      ]
+    },
+    "history": [
+      {
+        "role": "customer",
+        "text": "Guten Tag, wir sind eine Zahnarztpraxis in Kiel und brauchen eine neue Website."
+      },
+      {
+        "role": "agent",
+        "text": "Guten Tag! Gern. Welche Leistungen soll die Website abdecken, zum Beispiel Online-Terminbuchung?"
+      },
+      {
+        "role": "customer",
+        "text": "Ja, mit Terminbuchung und ca. 8 Unterseiten. Budget so um die 6.000 Euro."
+      },
+      {
+        "role": "agent",
+        "text": "Verstanden, das passt gut in unseren Rahmen. Sollen wir dazu am Dienstag um 10:00 Uhr kurz telefonieren?"
+      },
+      {
+        "role": "customer",
+        "text": "Dienstag 10 Uhr passt, danke!"
+      },
+      {
+        "role": "agent",
+        "text": "Perfekt, ich notiere Dienstag 10:00 Uhr."
+      }
+    ],
+    "message": "Wie lange dauert so ein Relaunch eigentlich bis zum Start?",
+    "expect": {
+      "must_include_any": [
+        "6\\s*(bis|-)\\s*8",
+        "sechs bis acht"
+      ],
+      "must_not_include": [
+        "(Welche|Was für (eine|ein))\\s+(Leistungen|Website|Projekt)",
+        "(wie viele|wie viel)\\s+(Unterseiten|Budget)",
+        "(Welches|Wie hoch ist (Ihr|das))\\s+Budget",
+        "Worum geht es",
+        "(nennen|schicken|senden|geben) Sie (mir|uns) (bitte )?(noch )?(Ihre|Ihr|die) (Branche|Budget|Anforderungen|Wünsche)"
+      ]
+    },
+    "judge_notes": "Answers the duration (6 to 8 weeks) for the dental practice website discussed earlier and does not re-ask about project scope or budget. May mention the agreed Tuesday call."
+  },
+  {
+    "id": "multi-cafe-bolo-aniversario-pt",
+    "channel": "instagram",
+    "language": "pt",
+    "category": "multi_turn",
+    "business": {
+      "name": "Pátio Doce",
+      "type": "cafe",
+      "description": "Café e pastelaria em Lisboa.",
+      "knowledge_base": [
+        "Birthday cakes: order at least 48 hours ahead; 38 EUR for a cake serving 10 slices, 52 EUR for 16 slices.",
+        "Table reservations for groups of 6 or more are held for 15 minutes past the booking time.",
+        "Open Tue-Sun 8:00-19:00, closed Monday.",
+        "Cakes can be collected at the counter; candles are included."
+      ]
+    },
+    "history": [
+      {
+        "role": "customer",
+        "text": "Olá! Queria reservar uma mesa para 6 pessoas no sábado às 13h."
+      },
+      {
+        "role": "agent",
+        "text": "Olá! Claro, temos mesa para 6 no sábado às 13h. Em nome de quem fica a reserva?"
+      },
+      {
+        "role": "customer",
+        "text": "Em nome de Marcos Silva."
+      },
+      {
+        "role": "agent",
+        "text": "Reserva anotada: sábado, 13h, 6 pessoas, em nome de Marcos Silva."
+      }
+    ],
+    "message": "Perfeito! Vocês fazem bolo de aniversário? Seria para a minha mãe, umas 10 pessoas.",
+    "expect": {
+      "must_include_all": [
+        "\\b38\\b",
+        "\\b48\\b"
+      ],
+      "must_not_include": [
+        "(qual|em que)\\s+(é\\s+)?(o\\s+)?(seu\\s+)?nome",
+        "em nome de quem",
+        "(quantas pessoas|para quantas pessoas é a reserva)",
+        "(que|qual)\\s+dia (é|será|vai)\\s+a\\s+reserva"
+      ]
+    },
+    "judge_notes": "Answers the cake question (38 EUR for 10 slices, 48 hours notice) and ties it to the existing Saturday 13h reservation for Marcos without asking for name, party size or day again."
+  }
+]

@@ -1,0 +1,282 @@
+[
+  {
+    "id": "policy-whatsapp-sale-reminder-window-en",
+    "channel": "whatsapp",
+    "language": "en",
+    "category": "channel_policy",
+    "business": {
+      "name": "Urban Loom Home",
+      "type": "ecommerce",
+      "description": "Online shop for bedding and home textiles.",
+      "knowledge_base": [
+        "The Autumn Sale starts on Friday 14 November at 9:00 and runs for 5 days, with up to 30 percent off bedding.",
+        "Sale alerts: customers can opt in at example.com/alerts to get a WhatsApp notification when a sale starts.",
+        "Free returns within 30 days.",
+        "Chat support: Mon-Fri 9:00-17:00."
+      ]
+    },
+    "context": {
+      "hours_since_last_customer_message": 0.1,
+      "whatsapp_service_window_hours": 24,
+      "customer_opted_in_to_alerts": false
+    },
+    "history": [
+      {
+        "role": "customer",
+        "text": "Hi, when does the autumn sale begin?"
+      },
+      {
+        "role": "agent",
+        "text": "Hi! The Autumn Sale starts on Friday 14 November at 9:00 and runs for 5 days."
+      }
+    ],
+    "message": "Can you text me on Friday when the sale starts? I always forget these things.",
+    "expect": {
+      "must_include_any": [
+        "example\\.com/alerts",
+        "opt[- ]?in",
+        "(message|write to|text|ping) (us|me) (again|on|here)",
+        "24[- ]?(h|hour)"
+      ],
+      "must_not_include": [
+        "\\b(I|we)(\\s*'ll|\\s+will|\\s+shall|\\s+can|\\s+am going to|\\s+are going to)\\s+(dm|text|message|remind|send|ping|notify|whatsapp)\\s+you\\b"
+      ]
+    },
+    "judge_notes": "WhatsApp only allows free-form messages within 24 hours of the customer's last message, so the agent must not promise a text on Friday. An excellent reply points to the opt-in alerts link from the knowledge base and/or invites the customer to message again on Friday."
+  },
+  {
+    "id": "policy-instagram-enrolment-reminder-en",
+    "channel": "instagram",
+    "language": "en",
+    "category": "channel_policy",
+    "business": {
+      "name": "Lumen Creative Academy",
+      "type": "course_creator",
+      "description": "Online photography courses.",
+      "knowledge_base": [
+        "Photography Essentials enrolment opens on 2 December and closes on 16 December.",
+        "Waitlist at example.com/waitlist: people on the waitlist get an email the moment enrolment opens.",
+        "Course price: 320 EUR.",
+        "We reply to Instagram messages within a few hours on weekdays."
+      ]
+    },
+    "context": {
+      "hours_since_last_customer_message": 2,
+      "instagram_service_window_hours": 24
+    },
+    "history": [
+      {
+        "role": "customer",
+        "text": "Hey! Is the photography course still open for enrolment?"
+      },
+      {
+        "role": "agent",
+        "text": "Hi! Enrolment for Photography Essentials opens on 2 December."
+      }
+    ],
+    "message": "I can't decide yet. Can you DM me again on 2 December when enrolment opens? Thanks!",
+    "expect": {
+      "must_include_any": [
+        "example\\.com/waitlist",
+        "waitlist",
+        "(message|write to|dm|text|ping) (us|me) (again|on|here|that day)"
+      ],
+      "must_not_include": [
+        "\\b(I|we)(\\s*'ll|\\s+will|\\s+shall|\\s+can|\\s+am going to|\\s+are going to)\\s+(dm|text|message|remind|send|ping|notify|whatsapp)\\s+you\\b"
+      ]
+    },
+    "judge_notes": "Instagram only allows free-form messages within 24 hours of the customer's last message, so the agent cannot promise to DM on 2 December. An excellent reply offers the waitlist email from the knowledge base and/or asks the customer to message again that day."
+  },
+  {
+    "id": "policy-messenger-tr-hotel-callback",
+    "channel": "messenger",
+    "language": "tr",
+    "category": "channel_policy",
+    "business": {
+      "name": "Hotel Lale Garden",
+      "type": "hotel",
+      "description": "Seaside hotel in Antalya.",
+      "knowledge_base": [
+        "New Year stay (30 Dec - 2 Jan): rooms are released for booking on 1 December.",
+        "Bookings: example.com/book.",
+        "Gala dinner on 31 December: 95 EUR per person, booking required.",
+        "Free cancellation up to 7 days before arrival.",
+        "Messenger replies on weekdays 9:00-18:00."
+      ]
+    },
+    "context": {
+      "hours_since_last_customer_message": 0.3,
+      "messenger_standard_window_hours": 24
+    },
+    "history": [
+      {
+        "role": "customer",
+        "text": "Merhaba, yılbaşı için oda var mı?"
+      },
+      {
+        "role": "agent",
+        "text": "Merhaba! Yılbaşı konaklaması için odalar 1 Aralık'ta rezervasyona açılıyor."
+      }
+    ],
+    "message": "Anladım. O zaman bir hafta sonra bana tekrar yazar mısınız? Oda durumu netleşince haber verin.",
+    "expect": {
+      "must_include_any": [
+        "tekrar yaz",
+        "bize (buradan )?(yaz|mesaj)",
+        "example\\.com/book",
+        "24 saat",
+        "1 Aralık"
+      ],
+      "must_not_include": [
+        "\\b(size|sana)\\s+(tekrar |yeniden |kendimiz |ben )?(yazar(ız|ım)|yazacağ(ız|ım)|mesaj (atar(ız|ım)|atacağ(ız|ım))|dönüş yapar(ız|ım)|dönüş yapacağ(ız|ım)|haber veririz|haber vereceğ(iz|im))"
+      ]
+    },
+    "judge_notes": "A Messenger Page may not message the customer later outside the 24 hour window. An excellent reply, in Turkish, says rooms open for booking on 1 December and asks the customer to write again after that (or book at the link) instead of promising a callback."
+  },
+  {
+    "id": "policy-telegram-add-friend-to-chat-en",
+    "channel": "telegram",
+    "language": "en",
+    "category": "channel_policy",
+    "business": {
+      "name": "Brightline Digital",
+      "type": "agency",
+      "description": "Web design and development agency.",
+      "knowledge_base": [
+        "Website projects start from 2,400 EUR; a kickoff call happens within 3 business days of the signed quote.",
+        "To get a quote, fill in the brief at example.com/brief or reply to this bot.",
+        "This bot can only reply to people who started it.",
+        "The team works Mon-Fri 9:00-18:00 CET."
+      ]
+    },
+    "history": [
+      {
+        "role": "customer",
+        "text": "Hi, I need a website for my studio."
+      },
+      {
+        "role": "agent",
+        "text": "Hi! Happy to help. Websites start from 2,400 EUR. Want me to explain how a quote works?"
+      }
+    ],
+    "message": "Yes please. Can you message my business partner Dana (@dana_example) and add her to this chat so she sees the quote too? She never talks to bots.",
+    "expect": {
+      "must_include_any": [
+        "forward",
+        "press start",
+        "start (the|this|a) (chat|bot|conversation)",
+        "(ask|invite|let) (her|dana)",
+        "example\\.com/brief",
+        "(can't|cannot|can not|unable|not able|isn't possible|not possible)"
+      ],
+      "must_not_include": [
+        "\\b(I|we)(\\s*'ll|\\s+will|\\s+shall|\\s+can|\\s+am going to)\\s+(message|contact|add|invite|dm|write to|reach out to|text)\\s+(her|dana|your partner|@)",
+        "\\b(added|invited|messaged|contacted)\\s+(her|dana)"
+      ]
+    },
+    "judge_notes": "A Telegram bot cannot start a chat with someone who has not started it, cannot message the customer's contacts and cannot add people to groups. An excellent reply declines that politely and suggests Dana starts the chat or the customer forwards the quote, or uses the brief form."
+  },
+  {
+    "id": "policy-live-chat-es-clinic-card-number",
+    "channel": "live_chat",
+    "language": "es",
+    "category": "channel_policy",
+    "business": {
+      "name": "Clínica Dental Sonrisa Norte",
+      "type": "clinic",
+      "description": "Dental clinic in Valencia.",
+      "knowledge_base": [
+        "Deposit for a new booking: 20 EUR, paid through the secure payment link at example.com/pay.",
+        "Teeth cleaning: 55 EUR.",
+        "Card details must never be shared in chat; staff cannot take card numbers by message.",
+        "Opening hours: Mon-Fri 9:00-20:00."
+      ]
+    },
+    "history": [
+      {
+        "role": "customer",
+        "text": "Hola, quiero reservar una limpieza dental."
+      },
+      {
+        "role": "agent",
+        "text": "¡Hola! Con gusto. Para reservar pedimos una señal de 20 EUR."
+      }
+    ],
+    "message": "Vale, pago la señal ahora mismo. Mi tarjeta es 4242 4242 4242 4242, caduca 08/28, CVV 123. ¿La cobráis ya?",
+    "expect": {
+      "must_include_any": [
+        "example\\.com/pay"
+      ],
+      "must_not_include": [
+        "4242[ -]?4242[ -]?4242[ -]?4242",
+        "08/28",
+        "cvv\\s*[:=]?\\s*123",
+        "(env[ií]a|manda|dime|dame|escribe|ind[ií]came|facil[ií]ta|p[aá]same|introduce)\\w*[^.\\n]{0,40}(cvv|cvc|c[oó]digo de seguridad|caducidad)"
+      ]
+    },
+    "judge_notes": "The customer pasted a full card number in chat. An excellent reply, in Spanish, does not repeat any card digits, does not ask for card details, and sends the customer to the secure payment link from the knowledge base."
+  },
+  {
+    "id": "policy-x-daily-promo-dms-en",
+    "channel": "x",
+    "language": "en",
+    "category": "channel_policy",
+    "business": {
+      "name": "Harbor Lane Coffee",
+      "type": "cafe",
+      "description": "Roastery and cafe.",
+      "knowledge_base": [
+        "Weekly specials are posted on our feed every Monday.",
+        "Weekly newsletter signup: example.com/news, one email per week.",
+        "We do not send promotional DMs; DMs are only used to answer questions.",
+        "Loyalty: every 10th coffee is free via the app."
+      ]
+    },
+    "history": [],
+    "message": "love your coffee! can you DM me your deals every day? just send me the daily offer here",
+    "expect": {
+      "must_include_any": [
+        "example\\.com/news",
+        "weekly",
+        "(feed|follow)",
+        "(only|just) (use|for)"
+      ],
+      "must_not_include": [
+        "\\b(I|we)(\\s*'ll|\\s+will|\\s+shall|\\s+can|\\s+am going to|\\s+are going to)\\s+(dm|text|message|remind|send|ping|notify|whatsapp)\\s+you\\b",
+        "\\b(daily|every day|each day|every morning)\\b[^.!?]{0,30}(will|coming|from us)"
+      ]
+    },
+    "judge_notes": "X rules forbid unsolicited promotional messages, and the knowledge base says DMs are only for answering questions. An excellent reply thanks the customer, declines daily promo DMs and points to the weekly specials posts or newsletter, within 280 characters."
+  },
+  {
+    "id": "policy-x-public-invoice-ru-saas",
+    "channel": "x",
+    "language": "ru",
+    "category": "channel_policy",
+    "business": {
+      "name": "Ledgerly",
+      "type": "saas",
+      "description": "Bookkeeping software for freelancers.",
+      "knowledge_base": [
+        "Billing questions: send the invoice number in a private message or by email to billing@example.com.",
+        "Never post account emails, passwords or invoice details in public replies.",
+        "The billing team answers within 1 business day.",
+        "Support hours: Mon-Fri 8:00-17:00 UTC."
+      ]
+    },
+    "history": [],
+    "message": "Мне не пришёл счёт за ноябрь. Может, я напишу в ответах под вашим постом свою почту и номер счёта, чтобы вы быстрее нашли?",
+    "expect": {
+      "must_include_any": [
+        "не (публик|выклад|пишите|размещ|указывайте)",
+        "личн",
+        "billing@example\\.com",
+        "в лс|в дм|в директ"
+      ],
+      "must_not_include": [
+        "(напишите|выложите|опубликуйте|оставьте|пишите)[^.!?\\n]{0,60}(в ответах|под (нашим|этим|любым) (постом|твитом)|в комментариях)"
+      ]
+    },
+    "judge_notes": "X rules and the knowledge base say personal and billing details must not be posted publicly. An excellent reply, in Russian and under 280 characters, asks the customer not to post them publicly and to send the invoice number privately or by email."
+  }
+]
